@@ -1,0 +1,122 @@
+// ==UserScript==
+// @name        Refresh me daddy
+// @description Auto refresh for the wasteland
+// @author Hess
+// @match     https://www.legacy-game.net/*
+// @match     https://dev.legacy-game.net/*
+// @match     https://direct.legacy-game.net/*
+// @grant       none
+// @version 1
+// @require     http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js
+// @require     http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.js
+// ==/UserScript==
+/* global $, jQuery,locache, Mousetrap, URI, ddrivetip, hideddrivetip, bar1,
+_,sprintf,Chart, positionToElement, select, pic */
+
+
+var function_registry = {};
+
+function registerFunction(fn, path_rules, subdomain = "all") {
+  assert(
+    path_rules !== undefined && path_rules.length > 0,
+    "path_rules cannot be empty"
+  );
+
+  $(function () {
+    const current_subdomain = window.location.host.split(".", 1)[0];
+
+
+    subdomain = subdomain === "direct" ? "www" : subdomain;
+
+
+    path_rules = typeof path_rules === "string" ? [path_rules] : path_rules;
+
+    $.each(path_rules, function (i, rule) {
+      if (subdomain === "all" || subdomain === current_subdomain) {
+        if (rule in function_registry) {
+          function_registry[rule].push(fn);
+        } else {
+          function_registry[rule] = [fn];
+        }
+      }
+    });
+  });
+}
+
+registerFunction(
+  function () {
+    console.log("Leg");
+  },
+  [".*"],
+  "www"
+);
+registerFunction(
+  function () {
+    console.log("Dev");
+  },
+  [".*"],
+  "dev"
+);
+registerFunction(
+  function () {
+    console.log("Leg2");
+  },
+  [".*"]
+);
+
+
+function executeFunctions() {
+  var current_path = window.location.pathname;
+  $.each(function_registry, function (rule, fns) {
+    if (current_path.match(rule)) {
+      $.each(fns, function () {
+
+        try {
+          this();
+        } catch (e) {
+          console.error(e.message);
+          console.error(e.stack);
+        }
+      });
+    }
+  });
+}
+
+function removeURIQuery() {
+  history.pushState(null, null, window.location.href.replace(window.location.search || '', ''));
+}
+
+// =============================================================================
+//                              Utilities
+// =============================================================================
+/**
+ * Assert Rules
+ *
+ * @return Void
+ */
+function assert(condition, msg) {
+  if (!condition) throw new Error(msg);
+}
+// Avoid conflicting with page's jQuery
+this.$ = this.jQuery = jQuery.noConflict(true);
+
+// =============================================================================
+//                            Wasteland Refresh
+// =============================================================================
+
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
+let value1 = getRandomArbitrary(10000,204570)
+registerFunction(
+  function () {
+setTimeout(function(){
+   window.location.reload(1);
+}, value1 );
+
+  },
+["map2.php"]
+);
+/* <3 from Hess, hope this helps your wasteland experience :D */
+$(executeFunctions);
+
