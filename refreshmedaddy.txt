@@ -4,7 +4,6 @@
 // @author Hess
 // @match     https://www.legacy-game.net/*
 // @match     https://dev.legacy-game.net/*
-// @match     https://direct.legacy-game.net/*
 // @grant       none
 // @version 1
 // @require     http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js
