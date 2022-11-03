@@ -22,6 +22,8 @@ You can find them all on the extension stores for your browsers
 
 After you get them in the browser, just copy paste the script into it and you should be good to go! 
 
+If you've used the LES, its the same extension!
+
 Let me know 1 if you feel a difference and 2 if you have any feedback just toss me a DM in discord or in game message 
 
 Happy Hunting! 
