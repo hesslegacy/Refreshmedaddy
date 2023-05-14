@@ -28,3 +28,4 @@ Let me know 1 if you feel a difference and 2 if you have any feedback just toss 
 
 Happy Hunting! 
   
+edit: this scipt as is was approved and accepted as is, if you choose to modify it while playing legacy-game.net, that is done with your own choice in mind. Don't be a fucking nimwit. 
