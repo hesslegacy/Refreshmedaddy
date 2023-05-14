@@ -28,4 +28,4 @@ Let me know 1 if you feel a difference and 2 if you have any feedback just toss 
 
 Happy Hunting! 
   
-edit: this scipt as is was approved and accepted as is, if you choose to modify it while playing legacy-game.net, that is done with your own choice in mind. Don't be a fucking nimwit. 
+edit: this scipt as is was approved and accepted as is, if you choose to modify it while playing legacy-game.net that is done without authorization of the script creator or any approval by devs/the game designer and is subject to punishment as they see fit if found outedit: this scipt as is was approved and accepted as is, if you choose to modify it while playing legacy-game.net that is done without authorization of the script creator or any approval by devs/the game designer and is subject to punishment as they see fit if found out
